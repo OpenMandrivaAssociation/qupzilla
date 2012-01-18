@@ -7,7 +7,7 @@ Source0:	nowrep-QupZilla-v%{version}-0-g%{gitrev}.tar.gz
 Patch0:		qupzilla-1.1.5-mdv-desktop.patch
 Group:		Networking/WWW
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
-BuildRequires:	qt-devel
+BuildRequires:	qt4-devel
 BuildRequires:	dos2unix
 
 %description
@@ -31,7 +31,7 @@ to fill this gap by providing a very stable browsing experience.
 
 %prep
 %setup -q -n nowrep-QupZilla-ac7abdc
-#patch0 -p1
+%patch0 -p1
 dos2unix COPYRIGHT README.md
 
 %build
@@ -50,9 +50,9 @@ dos2unix COPYRIGHT README.md
 %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/themes
-%{_iconsbasedir}/*/apps/*.png
+%{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/pixmaps/%{name}.png
-%{_desktopdir}/%{name}.desktop
+%{_datadir}/applications/%{name}.desktop
 %doc AUTHORS COPYRIGHT FAQ README.md TODO
 %lang(cs) %{_datadir}/%{name}/locale/cs_CZ.qm
 %lang(de) %{_datadir}/%{name}/locale/de_DE.qm
