@@ -54,6 +54,7 @@ dos2unix COPYRIGHT README.md
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
 %doc AUTHORS COPYRIGHT FAQ README.md TODO
+%dir %{_datadir}/%{name}/locale
 %lang(cs) %{_datadir}/%{name}/locale/cs_CZ.qm
 %lang(de) %{_datadir}/%{name}/locale/de_DE.qm
 %lang(el) %{_datadir}/%{name}/locale/el_GR.qm
