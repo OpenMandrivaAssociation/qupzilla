@@ -41,12 +41,11 @@ dos2unix COPYRIGHT README.md
 %install
 %makeinstall_std INSTALL_ROOT=%{buildroot}
 
-# find_lang is broken :,(
-#find_lang %{name} --with-qt
+%find_lang %{name} --all-name --with-qt
 
 %__install -d %{buildroot}%{_defaultdocdir}/%{name}
 
-%files
+%files -f %{name}.lang
 %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/themes
@@ -55,27 +54,3 @@ dos2unix COPYRIGHT README.md
 %{_datadir}/applications/%{name}.desktop
 %doc AUTHORS COPYRIGHT FAQ README.md TODO
 %dir %{_datadir}/%{name}/locale
-%lang(cs) %{_datadir}/%{name}/locale/cs_CZ.qm
-%lang(de) %{_datadir}/%{name}/locale/de_DE.qm
-%lang(el) %{_datadir}/%{name}/locale/el_GR.qm
-%lang(es) %{_datadir}/%{name}/locale/es_ES.qm
-%lang(fr) %{_datadir}/%{name}/locale/fr_FR.qm
-%lang(it) %{_datadir}/%{name}/locale/it_IT.qm
-%lang(nl) %{_datadir}/%{name}/locale/nl_NL.qm
-%lang(pl) %{_datadir}/%{name}/locale/pl_PL.qm
-%lang(pt) %{_datadir}/%{name}/locale/pt_PT.qm
-%lang(cs) %{_datadir}/%{name}/locale/qt_cs.qm
-%lang(de) %{_datadir}/%{name}/locale/qt_de.qm
-%lang(el) %{_datadir}/%{name}/locale/qt_el.qm
-%lang(es) %{_datadir}/%{name}/locale/qt_es.qm
-%lang(fr) %{_datadir}/%{name}/locale/qt_fr.qm
-%lang(it) %{_datadir}/%{name}/locale/qt_it.qm
-%lang(nl) %{_datadir}/%{name}/locale/qt_nl.qm
-%lang(pl) %{_datadir}/%{name}/locale/qt_pl.qm
-%lang(pt) %{_datadir}/%{name}/locale/qt_pt.qm
-%lang(ru) %{_datadir}/%{name}/locale/qt_ru.qm
-%lang(sk) %{_datadir}/%{name}/locale/qt_sk.qm
-%lang(zh) %{_datadir}/%{name}/locale/qt_zh_CN.qm
-%lang(ru) %{_datadir}/%{name}/locale/ru_RU.qm
-%lang(sk) %{_datadir}/%{name}/locale/sk_SK.qm
-%lang(zh) %{_datadir}/%{name}/locale/zh_CN.qm
