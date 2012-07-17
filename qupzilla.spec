@@ -94,7 +94,55 @@ export USE_LIBPATH=%{_libdir}/
 %install
 make install INSTALL_ROOT=%{buildroot}
 
+%if %{mdvver} >= 201200
 %find_lang %{name} --all-name --with-qt
+%else
+cat > %{name}.lang << EOF
+%lang(ja) /usr/share/qupzilla/locale/qt_ja.qm
+%lang(RU) /usr/share/qupzilla/locale/ru_RU.qm
+%lang(PT) /usr/share/qupzilla/locale/pt_PT.qm
+%lang(it) /usr/share/qupzilla/locale/qt_it.qm
+%lang(RS) /usr/share/qupzilla/locale/sr_RS.qm
+%lang(pt) /usr/share/qupzilla/locale/qt_pt.qm
+%lang(uk) /usr/share/qupzilla/locale/qt_uk.qm
+%lang(sk) /usr/share/qupzilla/locale/qt_sk.qm
+%lang(GR) /usr/share/qupzilla/locale/el_GR.qm
+%lang(JP) /usr/share/qupzilla/locale/ja_JP.qm
+%lang(RO) /usr/share/qupzilla/locale/ro_RO.qm
+%lang(sr_RS) /usr/share/qupzilla/locale/qt_sr_RS.qm
+%lang(zh_CN) /usr/share/qupzilla/locale/qt_zh_CN.qm
+%lang(SE) /usr/share/qupzilla/locale/sv_SE.qm
+%lang(CZ) /usr/share/qupzilla/locale/cs_CZ.qm
+%lang(VE) /usr/share/qupzilla/locale/es_VE.qm
+%lang(ID) /usr/share/qupzilla/locale/id_ID.qm
+%lang(es) /usr/share/qupzilla/locale/qt_es.qm
+%lang(de) /usr/share/qupzilla/locale/qt_de.qm
+%lang(cs) /usr/share/qupzilla/locale/qt_cs.qm
+%lang(GE) /usr/share/qupzilla/locale/ka_GE.qm
+%lang(ES) /usr/share/qupzilla/locale/es_ES.qm
+%lang(UA) /usr/share/qupzilla/locale/uk_UA.qm
+%lang(hu) /usr/share/qupzilla/locale/qt_hu.qm
+%lang(IT) /usr/share/qupzilla/locale/it_IT.qm
+%lang(CN) /usr/share/qupzilla/locale/zh_CN.qm
+%lang(nl) /usr/share/qupzilla/locale/qt_nl.qm
+%lang(sr_BA) /usr/share/qupzilla/locale/qt_sr_BA.qm
+%lang(SK) /usr/share/qupzilla/locale/sk_SK.qm
+%lang(BA) /usr/share/qupzilla/locale/sr_BA.qm
+%lang(zh_TW) /usr/share/qupzilla/locale/qt_zh_TW.qm
+%lang(HU) /usr/share/qupzilla/locale/hu_HU.qm
+%lang(PL) /usr/share/qupzilla/locale/pl_PL.qm
+%lang(sv) /usr/share/qupzilla/locale/qt_sv.qm
+%lang(DE) /usr/share/qupzilla/locale/de_DE.qm
+%lang(TW) /usr/share/qupzilla/locale/zh_TW.qm
+%lang(fr) /usr/share/qupzilla/locale/qt_fr.qm
+%lang(NL) /usr/share/qupzilla/locale/nl_NL.qm
+%lang(el) /usr/share/qupzilla/locale/qt_el.qm
+%lang(BR) /usr/share/qupzilla/locale/pt_BR.qm
+%lang(pl) /usr/share/qupzilla/locale/qt_pl.qm
+%lang(FR) /usr/share/qupzilla/locale/fr_FR.qm
+%lang(ru) /usr/share/qupzilla/locale/qt_ru.qm
+EOF
+%endif
 
 %files core -f %{name}.lang
 %{_bindir}/%{name}
