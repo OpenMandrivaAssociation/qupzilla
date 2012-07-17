@@ -79,7 +79,7 @@ Shared library used by %{oname} web browser.
 Summary:	%{oname} development files
 Requires:	%{libname} = %{version}
 
-%description -n %{libname}
+%description -n %{develname}
 Development files for %{libname} library.
 
 %prep
