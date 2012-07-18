@@ -5,7 +5,7 @@
 Name:		qupzilla
 Summary:	Fast browser based on QtWebKit
 Version:	1.3.1
-Release:	1
+Release:	2
 URL:		http://www.qupzilla.com/
 Source0:	%{oname}-%{version}.tar.gz
 Group:		Networking/WWW
@@ -143,6 +143,8 @@ cat > %{name}.lang << EOF
 %lang(ru) /usr/share/qupzilla/locale/qt_ru.qm
 EOF
 %endif
+
+%files
 
 %files core -f %{name}.lang
 %{_bindir}/%{name}
