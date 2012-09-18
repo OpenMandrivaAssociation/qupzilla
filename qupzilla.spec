@@ -37,6 +37,7 @@ to fill this gap by providing a very stable browsing experience.
 
 %package core
 Summary:	%{oname} web browser core package
+Provides:	webclient
 
 %description core
 QupZilla is a new and very fast QtWebKit browser. It aims to be a lightweight
