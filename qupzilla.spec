@@ -4,10 +4,11 @@
 %define		develname	%mklibname %{oname} -d
 Name:		qupzilla
 Summary:	Fast browser based on QtWebKit
-Version:	1.3.1
-Release:	2
+Version:	1.3.5
+Release:	1
 URL:		http://www.qupzilla.com/
 Source0:	%{oname}-%{version}.tar.gz
+Patch0:		qupzilla-1.3.5-mdv-linking.patch
 Group:		Networking/WWW
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 BuildRequires:	qt4-devel
@@ -84,10 +85,12 @@ Development files for %{libname} library.
 
 %prep
 %setup -q -n %{oname}-%{version}
+%patch0 -p1
 dos2unix COPYRIGHT README.md
 
 %build
 export USE_LIBPATH=%{_libdir}/
+export USE_WEBGL="true"
 %qmake_qt4
 %make
 
