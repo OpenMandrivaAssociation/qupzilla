@@ -108,6 +108,7 @@ cat > %{name}.lang << EOF
 %lang(RU) /usr/share/qupzilla/locale/ru_RU.qm
 %lang(PT) /usr/share/qupzilla/locale/pt_PT.qm
 %lang(it) /usr/share/qupzilla/locale/qt_it.qm
+%lang(fa) /usr/share/qupzilla/locale/qt_fa.qm
 %lang(RS) /usr/share/qupzilla/locale/sr_RS.qm
 %lang(pt) /usr/share/qupzilla/locale/qt_pt.qm
 %lang(uk) /usr/share/qupzilla/locale/qt_uk.qm
@@ -123,6 +124,7 @@ cat > %{name}.lang << EOF
 %lang(ID) /usr/share/qupzilla/locale/id_ID.qm
 %lang(es) /usr/share/qupzilla/locale/qt_es.qm
 %lang(de) /usr/share/qupzilla/locale/qt_de.qm
+%lang(IR) /usr/share/qupzilla/locale/fa_IR.qm
 %lang(cs) /usr/share/qupzilla/locale/qt_cs.qm
 %lang(GE) /usr/share/qupzilla/locale/ka_GE.qm
 %lang(ES) /usr/share/qupzilla/locale/es_ES.qm
