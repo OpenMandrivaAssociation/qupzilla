@@ -91,7 +91,9 @@ dos2unix COPYRIGHT README.md
 
 %build
 export USE_LIBPATH=%{_libdir}/
+%if %{mdvver} >= 201200
 export USE_WEBGL="true"
+%endif
 %qmake_qt4
 %make
 
