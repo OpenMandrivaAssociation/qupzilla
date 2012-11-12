@@ -1,0 +1,12 @@
+Index: QupZilla-1.3.5/src/lib/lib.pro
+===================================================================
+--- QupZilla-1.3.5.orig/src/lib/lib.pro
++++ QupZilla-1.3.5/src/lib/lib.pro
+@@ -1,6 +1,7 @@
+ QT += core gui webkit sql network script
+ TARGET = QupZilla
+ TEMPLATE = lib
++LIBS += -lX11
+ 
+ DEFINES *= QUPZILLA_SHAREDLIBRARY
+ 
