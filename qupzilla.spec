@@ -37,7 +37,6 @@ to fill this gap by providing a very stable browsing experience.
 
 %package core
 Summary:	%{oname} web browser core package
-Provides:	webclient
 
 %description core
 QupZilla is a new and very fast QtWebKit browser. It aims to be a lightweight
@@ -91,9 +90,7 @@ dos2unix COPYRIGHT README.md
 
 %build
 export USE_LIBPATH=%{_libdir}/
-%if %{mdvver} >= 201200
 export USE_WEBGL="true"
-%endif
 %qmake_qt4
 %make
 
@@ -108,7 +105,6 @@ cat > %{name}.lang << EOF
 %lang(RU) /usr/share/qupzilla/locale/ru_RU.qm
 %lang(PT) /usr/share/qupzilla/locale/pt_PT.qm
 %lang(it) /usr/share/qupzilla/locale/qt_it.qm
-%lang(fa) /usr/share/qupzilla/locale/qt_fa.qm
 %lang(RS) /usr/share/qupzilla/locale/sr_RS.qm
 %lang(pt) /usr/share/qupzilla/locale/qt_pt.qm
 %lang(uk) /usr/share/qupzilla/locale/qt_uk.qm
@@ -124,7 +120,6 @@ cat > %{name}.lang << EOF
 %lang(ID) /usr/share/qupzilla/locale/id_ID.qm
 %lang(es) /usr/share/qupzilla/locale/qt_es.qm
 %lang(de) /usr/share/qupzilla/locale/qt_de.qm
-%lang(IR) /usr/share/qupzilla/locale/fa_IR.qm
 %lang(cs) /usr/share/qupzilla/locale/qt_cs.qm
 %lang(GE) /usr/share/qupzilla/locale/ka_GE.qm
 %lang(ES) /usr/share/qupzilla/locale/es_ES.qm
@@ -173,3 +168,29 @@ EOF
 
 %files -n %{develname}
 %{_libdir}/lib%{oname}.so
+
+
+%changelog
+* Tue Sep 18 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.3.5-1
++ Revision: 817084
+- update to 1.3.5
+- enable WebGL support
+
+* Wed Jul 18 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.3.1-2
++ Revision: 810118
+- fix building qupzilla metapackage
+
+* Tue Jul 17 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.3.1-1
++ Revision: 810063
+- update to 1.3.1
+- split to multiple packages
+
+  + Per Øyvind Karlsen <peroyvind@mandriva.org>
+    - fix %%find_lang usage
+    - fix unpackage directory
+
+* Wed Jan 18 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.1.5-1
++ Revision: 762221
+- fixed some macros and BR
+- imported package qupzilla
+
