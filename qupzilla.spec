@@ -1,13 +1,17 @@
+# *****ing qmake...
+%define debug_package %nil
+
 %define		oname	QupZilla
 %define		major	1
 %define		libname	%mklibname %{oname} %{major}
 %define		develname	%mklibname %{oname} -d
 Name:		qupzilla
 Summary:	Fast browser based on QtWebKit
-Version:	1.3.5
+Version:	1.4.3
 Release:	1
 URL:		http://www.qupzilla.com/
-Source0:	%{oname}-%{version}.tar.gz
+# Packaged from git://github.com/QupZilla/qupzilla.git
+Source0:	%{name}-%{version}.tar.xz
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
 Group:		Networking/WWW
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -84,8 +88,8 @@ Requires:	%{libname} = %{version}
 Development files for %{libname} library.
 
 %prep
-%setup -q -n %{oname}-%{version}
-%patch0 -p1
+%setup -q
+%apply_patches
 dos2unix COPYRIGHT README.md
 
 %build
@@ -153,10 +157,11 @@ EOF
 %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/themes
+%{_datadir}/bash-completion/completions/*
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
-%doc AUTHORS COPYRIGHT FAQ README.md TODO
+%doc AUTHORS COPYRIGHT FAQ README.md
 %dir %{_datadir}/%{name}/locale
 %dir %{_libdir}/qupzilla
 
@@ -168,29 +173,3 @@ EOF
 
 %files -n %{develname}
 %{_libdir}/lib%{oname}.so
-
-
-%changelog
-* Tue Sep 18 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.3.5-1
-+ Revision: 817084
-- update to 1.3.5
-- enable WebGL support
-
-* Wed Jul 18 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.3.1-2
-+ Revision: 810118
-- fix building qupzilla metapackage
-
-* Tue Jul 17 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.3.1-1
-+ Revision: 810063
-- update to 1.3.1
-- split to multiple packages
-
-  + Per Øyvind Karlsen <peroyvind@mandriva.org>
-    - fix %%find_lang usage
-    - fix unpackage directory
-
-* Wed Jan 18 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.1.5-1
-+ Revision: 762221
-- fixed some macros and BR
-- imported package qupzilla
-
