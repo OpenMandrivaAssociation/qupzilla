@@ -16,6 +16,7 @@ Patch0:		qupzilla-1.3.5-mdv-linking.patch
 Group:		Networking/WWW
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 BuildRequires:	qt4-devel
+BuildRequires:	pkgconfig(QtWebKit)
 BuildRequires:	dos2unix
 Requires:	%{name}-core	= %{EVRD}
 Requires:	%{name}-plugins	= %{EVRD}
