@@ -8,15 +8,15 @@
 Name:		qupzilla
 Summary:	Fast browser based on QtWebKit
 Version:	1.4.4
-Release:	1
+Release:	2
 URL:		http://www.qupzilla.com/
 # Packaged from git://github.com/QupZilla/qupzilla.git
 Source0:	http://www.qupzilla.com/uploads/%{oname}-%{version}.tar.gz
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
 Group:		Networking/WWW
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
-BuildRequires:	qt4-devel
-BuildRequires:	pkgconfig(QtWebKit)
+BuildRequires:	qt5-devel
+BuildRequires:	pkgconfig(Qt5WebKit)
 BuildRequires:	dos2unix
 Requires:	%{name}-core	= %{EVRD}
 Requires:	%{name}-plugins	= %{EVRD}
@@ -96,7 +96,7 @@ dos2unix COPYRIGHT README.md
 %build
 export USE_LIBPATH=%{_libdir}/
 export USE_WEBGL="true"
-%qmake_qt4
+%qmake_qt5
 %make
 
 %install
