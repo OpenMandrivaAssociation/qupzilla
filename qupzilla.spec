@@ -17,6 +17,7 @@ Group:		Networking/WWW
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(Qt5WebKit)
+BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
 Requires:	%{name}-core	= %{EVRD}
 Requires:	%{name}-plugins	= %{EVRD}
