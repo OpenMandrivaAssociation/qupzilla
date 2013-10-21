@@ -1,6 +1,3 @@
-# *****ing qmake...
-%define debug_package %nil
-
 %define		oname	QupZilla
 %define		major	1
 %define		libname	%mklibname %{oname} %{major}
@@ -8,7 +5,7 @@
 Name:		qupzilla
 Summary:	Fast browser based on QtWebKit
 Version:	1.4.4
-Release:	3
+Release:	4
 URL:		http://www.qupzilla.com/
 # Packaged from git://github.com/QupZilla/qupzilla.git
 Source0:	http://www.qupzilla.com/uploads/%{oname}-%{version}.tar.gz
@@ -99,10 +96,10 @@ dos2unix COPYRIGHT README.md
 export USE_LIBPATH=%{_libdir}/
 export USE_WEBGL="true"
 %qmake_qt5
-%make
+%make STRIP=true
 
 %install
-make install INSTALL_ROOT=%{buildroot}
+make install INSTALL_ROOT=%{buildroot} STRIP=true
 
 %if %{mdvver} >= 201200
 %find_lang %{name} --all-name --with-qt
