@@ -5,7 +5,7 @@
 Name:		qupzilla
 Summary:	Fast browser based on QtWebKit
 Version:	1.4.4
-Release:	4
+Release:	5
 URL:		http://www.qupzilla.com/
 # Packaged from git://github.com/QupZilla/qupzilla.git
 Source0:	http://www.qupzilla.com/uploads/%{oname}-%{version}.tar.gz
@@ -19,6 +19,7 @@ BuildRequires:	dos2unix
 Requires:	%{name}-core	= %{EVRD}
 Requires:	%{name}-plugins	= %{EVRD}
 Requires:	qt5-database-plugin-sqlite
+Conflicts:	rosa-media-player-plugin
 
 %description
 QupZilla is a new and very fast QtWebKit browser. It aims to be a lightweight
