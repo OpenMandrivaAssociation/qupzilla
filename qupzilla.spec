@@ -5,7 +5,7 @@
 Name:		qupzilla
 Summary:	Fast browser based on QtWebKit
 Version:	1.4.4
-Release:	7
+Release:	8
 URL:		http://www.qupzilla.com/
 # Packaged from git://github.com/QupZilla/qupzilla.git
 Source0:	http://www.qupzilla.com/uploads/%{oname}-%{version}.tar.gz
