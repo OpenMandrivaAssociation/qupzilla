@@ -1,23 +1,24 @@
 %define		oname	QupZilla
 %define		major	1
 %define		libname	%mklibname %{oname} %{major}
-%define		develname	%mklibname %{oname} -d
-Name:		qupzilla
+%define		devname	%mklibname %{oname} -d
+
 Summary:	Fast browser based on QtWebKit
+Name:		qupzilla
 Version:	1.6.0
 Release:	1
-URL:		http://www.qupzilla.org/
+License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
+Group:		Networking/WWW
+Url:		http://www.qupzilla.org/
 # Packaged from git://github.com/QupZilla/qupzilla.git
 Source0:	http://www.qupzilla.com/uploads/%{oname}-%{version}.tar.gz
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
-Group:		Networking/WWW
-License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(Qt5WebKit)
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
-Requires:	%{name}-core	= %{EVRD}
-Requires:	%{name}-plugins	= %{EVRD}
+Requires:	%{name}-core = %{EVRD}
+Requires:	%{name}-plugins = %{EVRD}
 Requires:	qt5-database-plugin-sqlite
 Requires:	qt5-output-driver-default
 Conflicts:	rosa-media-player-plugin
@@ -41,8 +42,13 @@ developed or very unstable and miss important features. But there is missing
 a multiplatform, modern and actively developed browser. QupZilla is trying
 to fill this gap by providing a very stable browsing experience.
 
+%files
+
+#----------------------------------------------------------------------------
+
 %package core
 Summary:	%{oname} web browser core package
+Group:		Networking/WWW
 
 %description core
 QupZilla is a new and very fast QtWebKit browser. It aims to be a lightweight
@@ -63,9 +69,24 @@ developed or very unstable and miss important features. But there is missing
 a multiplatform, modern and actively developed browser. QupZilla is trying
 to fill this gap by providing a very stable browsing experience.
 
+%files core -f %{name}.lang
+%doc AUTHORS COPYRIGHT FAQ README.md
+%{_bindir}/%{name}
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/themes
+%{_datadir}/bash-completion/completions/*
+%{_iconsdir}/hicolor/*/apps/*.png
+%{_datadir}/pixmaps/%{name}.png
+%{_datadir}/applications/%{name}.desktop
+%dir %{_datadir}/%{name}/locale
+%dir %{_libdir}/qupzilla
+
+#----------------------------------------------------------------------------
+
 %package plugins
 Summary:	Various plugins for %{oname} web browser
-Requires:	%{name} = %{version}
+Group:		Networking/WWW
+Requires:	%{name} = %{EVRD}
 
 %description plugins
 QupZilla Plugins are dynamically loaded shared libraries (*.so) that can extend
@@ -76,18 +97,35 @@ application in almost any way. This package contains the following plugins:
 * Personal Information Manager
 * GreaseMonkey
 
+%files plugins
+%{_libdir}/qupzilla/*.so
+
+#----------------------------------------------------------------------------
+
 %package -n %{libname}
 Summary:	%{oname} shared library
+Group:		System/Libraries
 
 %description -n %{libname}
 Shared library used by %{oname} web browser.
 
-%package -n %{develname}
-Summary:	%{oname} development files
-Requires:	%{libname} = %{version}
+%files -n %{libname}
+%{_libdir}/lib%{oname}.so.%{major}*
 
-%description -n %{develname}
+#----------------------------------------------------------------------------
+
+%package -n %{devname}
+Summary:	%{oname} development files
+Group:		Development/C++
+Requires:	%{libname} = %{EVRD}
+
+%description -n %{devname}
 Development files for %{libname} library.
+
+%files -n %{devname}
+%{_libdir}/lib%{oname}.so
+
+#----------------------------------------------------------------------------
 
 %prep
 %setup -qn %{oname}-%{version}
@@ -158,25 +196,3 @@ cat >>%{name}.lang <<EOF
 %lang(nqo) %{_datadir}/qupzilla/locale/nqo.qm
 EOF
 
-%files
-
-%files core -f %{name}.lang
-%{_bindir}/%{name}
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/themes
-%{_datadir}/bash-completion/completions/*
-%{_iconsdir}/hicolor/*/apps/*.png
-%{_datadir}/pixmaps/%{name}.png
-%{_datadir}/applications/%{name}.desktop
-%doc AUTHORS COPYRIGHT FAQ README.md
-%dir %{_datadir}/%{name}/locale
-%dir %{_libdir}/qupzilla
-
-%files plugins
-%{_libdir}/qupzilla/*.so
-
-%files -n %{libname}
-%{_libdir}/lib%{oname}.so.%{major}*
-
-%files -n %{develname}
-%{_libdir}/lib%{oname}.so
