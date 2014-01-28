@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   QupZilla-1.6.0.tar.gz: 01fafb2477aba2ee43e753f6ce6da097cd5961d0
+sources:
+  QupZilla-1.6.1.tar.gz: d9e6cb43872656099e8f327687c4d7fe92cdfac5
