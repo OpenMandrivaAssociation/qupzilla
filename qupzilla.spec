@@ -13,6 +13,7 @@ Url:		http://www.qupzilla.org/
 # Packaged from git://github.com/QupZilla/qupzilla.git
 Source0:	http://www.qupzilla.com/uploads/%{oname}-%{version}.tar.gz
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
+Patch1:		disable-non-existing-locales.patch
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(Qt5WebKit)
 BuildRequires:	qt5-linguist-tools
@@ -131,6 +132,9 @@ Development files for %{libname} library.
 %setup -qn %{oname}-%{version}
 %apply_patches
 dos2unix COPYRIGHT README.md
+# remove outdated prebuilt localizations
+rm -rf bin/locale
+
 
 %build
 export USE_LIBPATH=%{_libdir}/
@@ -191,7 +195,6 @@ cat > %{name}.lang << EOF
 EOF
 %endif
 cat >>%{name}.lang <<EOF
-%lang(es) %{_datadir}/qupzilla/locale/es_419.qm
 %lang(lg) %{_datadir}/qupzilla/locale/lg.qm
 %lang(nqo) %{_datadir}/qupzilla/locale/nqo.qm
 EOF
