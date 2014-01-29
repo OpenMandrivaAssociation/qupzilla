@@ -6,14 +6,13 @@
 Summary:	Fast browser based on QtWebKit
 Name:		qupzilla
 Version:	1.6.1
-Release:	1
+Release:	2
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		http://www.qupzilla.org/
 # Packaged from git://github.com/QupZilla/qupzilla.git
 Source0:	http://www.qupzilla.com/uploads/%{oname}-%{version}.tar.gz
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
-Patch1:		disable-non-existing-locales.patch
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(Qt5WebKit)
 BuildRequires:	qt5-linguist-tools
