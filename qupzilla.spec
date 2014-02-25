@@ -5,8 +5,8 @@
 
 Summary:	Fast browser based on QtWebKit
 Name:		qupzilla
-Version:	1.6.1
-Release:	2
+Version:	1.6.3
+Release:	1
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		http://www.qupzilla.org/
@@ -146,51 +146,53 @@ make install INSTALL_ROOT=%{buildroot} STRIP=true
 
 %if %{mdvver} >= 201200
 %find_lang %{name} --all-name --with-qt
+echo "%%lang(uz) /usr/share/qupzilla/locale/uz@Latn.qm" >>%{name}.lang
 %else
 cat > %{name}.lang << EOF
 %lang(ja) %{_datadir}/qupzilla/locale/qt_ja.qm
-%lang(RU) %{_datadir}/qupzilla/locale/ru_RU.qm
-%lang(PT) %{_datadir}/qupzilla/locale/pt_PT.qm
+%lang(ru) %{_datadir}/qupzilla/locale/ru_RU.qm
+%lang(pt) %{_datadir}/qupzilla/locale/pt_PT.qm
 %lang(it) %{_datadir}/qupzilla/locale/qt_it.qm
-%lang(RS) %{_datadir}/qupzilla/locale/sr_RS.qm
+%lang(sr_RS) %{_datadir}/qupzilla/locale/sr_RS.qm
 %lang(pt) %{_datadir}/qupzilla/locale/qt_pt.qm
 %lang(uk) %{_datadir}/qupzilla/locale/qt_uk.qm
 %lang(sk) %{_datadir}/qupzilla/locale/qt_sk.qm
-%lang(GR) %{_datadir}/qupzilla/locale/el_GR.qm
-%lang(JP) %{_datadir}/qupzilla/locale/ja_JP.qm
-%lang(RO) %{_datadir}/qupzilla/locale/ro_RO.qm
+%lang(el) %{_datadir}/qupzilla/locale/el_GR.qm
+%lang(ja) %{_datadir}/qupzilla/locale/ja_JP.qm
+%lang(ro) %{_datadir}/qupzilla/locale/ro_RO.qm
 %lang(sr_RS) %{_datadir}/qupzilla/locale/qt_sr_RS.qm
 %lang(zh_CN) %{_datadir}/qupzilla/locale/qt_zh_CN.qm
-%lang(SE) %{_datadir}/qupzilla/locale/sv_SE.qm
-%lang(CZ) %{_datadir}/qupzilla/locale/cs_CZ.qm
-%lang(VE) %{_datadir}/qupzilla/locale/es_VE.qm
-%lang(ID) %{_datadir}/qupzilla/locale/id_ID.qm
+%lang(sv) %{_datadir}/qupzilla/locale/sv_SE.qm
+%lang(cs) %{_datadir}/qupzilla/locale/cs_CZ.qm
+%lang(es_VE) %{_datadir}/qupzilla/locale/es_VE.qm
+%lang(id) %{_datadir}/qupzilla/locale/id_ID.qm
 %lang(es) %{_datadir}/qupzilla/locale/qt_es.qm
 %lang(de) %{_datadir}/qupzilla/locale/qt_de.qm
 %lang(cs) %{_datadir}/qupzilla/locale/qt_cs.qm
-%lang(GE) %{_datadir}/qupzilla/locale/ka_GE.qm
-%lang(ES) %{_datadir}/qupzilla/locale/es_ES.qm
-%lang(UA) %{_datadir}/qupzilla/locale/uk_UA.qm
+%lang(ka_GE) %{_datadir}/qupzilla/locale/ka_GE.qm
+%lang(es) %{_datadir}/qupzilla/locale/es_ES.qm
+%lang(uk_UA) %{_datadir}/qupzilla/locale/uk_UA.qm
 %lang(hu) %{_datadir}/qupzilla/locale/qt_hu.qm
-%lang(IT) %{_datadir}/qupzilla/locale/it_IT.qm
-%lang(CN) %{_datadir}/qupzilla/locale/zh_CN.qm
+%lang(it) %{_datadir}/qupzilla/locale/it_IT.qm
+%lang(zh_CN) %{_datadir}/qupzilla/locale/zh_CN.qm
 %lang(nl) %{_datadir}/qupzilla/locale/qt_nl.qm
 %lang(sr_BA) %{_datadir}/qupzilla/locale/qt_sr_BA.qm
-%lang(SK) %{_datadir}/qupzilla/locale/sk_SK.qm
-%lang(BA) %{_datadir}/qupzilla/locale/sr_BA.qm
+%lang(sk) %{_datadir}/qupzilla/locale/sk_SK.qm
+%lang(sr_BA) %{_datadir}/qupzilla/locale/sr_BA.qm
 %lang(zh_TW) %{_datadir}/qupzilla/locale/qt_zh_TW.qm
-%lang(HU) %{_datadir}/qupzilla/locale/hu_HU.qm
-%lang(PL) %{_datadir}/qupzilla/locale/pl_PL.qm
+%lang(hu) %{_datadir}/qupzilla/locale/hu_HU.qm
+%lang(pl) %{_datadir}/qupzilla/locale/pl_PL.qm
 %lang(sv) %{_datadir}/qupzilla/locale/qt_sv.qm
-%lang(DE) %{_datadir}/qupzilla/locale/de_DE.qm
-%lang(TW) %{_datadir}/qupzilla/locale/zh_TW.qm
+%lang(de) %{_datadir}/qupzilla/locale/de_DE.qm
+%lang(zh_TW) %{_datadir}/qupzilla/locale/zh_TW.qm
 %lang(fr) %{_datadir}/qupzilla/locale/qt_fr.qm
-%lang(NL) %{_datadir}/qupzilla/locale/nl_NL.qm
+%lang(nl) %{_datadir}/qupzilla/locale/nl_NL.qm
 %lang(el) %{_datadir}/qupzilla/locale/qt_el.qm
-%lang(BR) %{_datadir}/qupzilla/locale/pt_BR.qm
+%lang(pt_BR) %{_datadir}/qupzilla/locale/pt_BR.qm
 %lang(pl) %{_datadir}/qupzilla/locale/qt_pl.qm
-%lang(FR) %{_datadir}/qupzilla/locale/fr_FR.qm
+%lang(fr) %{_datadir}/qupzilla/locale/fr_FR.qm
 %lang(ru) %{_datadir}/qupzilla/locale/qt_ru.qm
+%lang(uz) %{_datadir}/qupzilla/locale/uz@Latn.qm
 EOF
 %endif
 cat >>%{name}.lang <<EOF
