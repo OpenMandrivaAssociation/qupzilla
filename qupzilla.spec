@@ -19,6 +19,7 @@ BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
 Requires:	%{name}-core = %{EVRD}
 Requires:	%{name}-plugins = %{EVRD}
+Requires:	%{libname} = %{EVRD}
 Requires:	qt5-database-plugin-sqlite
 Requires:	qt5-output-driver-default
 Conflicts:	rosa-media-player-plugin
