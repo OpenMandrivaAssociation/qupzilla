@@ -22,7 +22,7 @@ BuildRequires:	pkgconfig(Qt5Script)
 Requires:	%{name}-core = %{EVRD}
 Requires:	%{name}-plugins = %{EVRD}
 Requires:	%{libname} = %{EVRD}
-Requires:	qt5-database-plugin-sqlite
+Requires:	qt5-qtbase-database-plugin-sqlite
 Requires:	qt5-output-driver-default
 Conflicts:	rosa-media-player-plugin
 
