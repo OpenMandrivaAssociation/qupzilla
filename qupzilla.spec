@@ -5,18 +5,20 @@
 
 Summary:	Fast browser based on QtWebKit
 Name:		qupzilla
-Version:	1.8.3
-Release:	1
+Version:	1.8.6
+Release:	0.1
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		http://www.qupzilla.org/
 # Packaged from git://github.com/QupZilla/qupzilla.git
-Source0:	https://codeload.github.com/QupZilla/qupzilla/zip/v%{version}/qupzilla-%{version}.tar.gz
+Source0:	https://github.com/QupZilla/qupzilla/archive/v%{version}.tar.gz
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(Qt5WebKit)
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
+BuildRequires:	pkgconfig(Qt5WebKitWidgets)
+BuildRequires:	pkgconfig(Qt5Script)
 Requires:	%{name}-core = %{EVRD}
 Requires:	%{name}-plugins = %{EVRD}
 Requires:	%{libname} = %{EVRD}
