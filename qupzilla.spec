@@ -5,13 +5,12 @@
 
 Summary:	Fast browser based on QtWebKit
 Name:		qupzilla
-Version:	1.8.6
-Release:	4
+Version:	1.8.7
+Release:	1
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		http://www.qupzilla.org/
-# Packaged from git://github.com/QupZilla/qupzilla.git
-Source0:	https://github.com/QupZilla/qupzilla/archive/v%{version}.tar.gz
+Source0:	https://github.com/QupZilla/qupzilla/releases/download/v%{version}/%{oname}-%{version}.tar.xz
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(Qt5WebKit)
@@ -19,6 +18,7 @@ BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
 BuildRequires:	pkgconfig(Qt5WebKitWidgets)
 BuildRequires:	pkgconfig(Qt5Script)
+BuildRequires:	pkgconfig(Qt5X11Extras)
 Requires:	%{name}-core = %{EVRD}
 Requires:	%{name}-plugins = %{EVRD}
 Requires:	%{libname} = %{EVRD}
@@ -132,7 +132,7 @@ Development files for %{libname} library.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%setup -q -n %{oname}-%{version}
 %apply_patches
 dos2unix COPYRIGHT README.md
 # remove outdated prebuilt localizations
@@ -152,6 +152,7 @@ make install INSTALL_ROOT=%{buildroot} STRIP=true
 echo "%%lang(uz) /usr/share/qupzilla/locale/uz@Latn.qm" >>%{name}.lang
 cat >>%{name}.lang <<EOF
 %lang(lg) %{_datadir}/qupzilla/locale/lg.qm
+%lang(lt) %{_datadir}/qupzilla/locale/lt.qm
 %lang(nqo) %{_datadir}/qupzilla/locale/nqo.qm
 %lang(sr) %{_datadir}/qupzilla/locale/sr.qm
 %lang(sr) %{_datadir}/qupzilla/locale/sr@ijekavian.qm
