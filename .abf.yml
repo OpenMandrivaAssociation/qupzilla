@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   QupZilla-1.8.7.tar.xz: 12000db20fc787615433545deab58a8ecabe9440
+sources:
+  QupZilla-1.8.9.tar.xz: 6a4613d6df5cfabe949e3a14ec8a5294005c1a78
