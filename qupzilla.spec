@@ -6,7 +6,7 @@
 Summary:	Fast browser based on QtWebKit
 Name:		qupzilla
 Version:	1.8.9
-Release:	1
+Release:	2
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		http://www.qupzilla.org/
