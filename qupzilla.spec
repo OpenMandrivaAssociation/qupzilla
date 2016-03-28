@@ -23,6 +23,7 @@ BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
 BuildRequires:	pkgconfig(Qt5WebEngine)
 BuildRequires:	pkgconfig(Qt5WebEngineWidgets)
+BuildRequires:	pkgconfig(Qt5QuickWidgets)
 BuildRequires:	pkgconfig(Qt5Script)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 Requires:	%{name}-core = %{EVRD}
