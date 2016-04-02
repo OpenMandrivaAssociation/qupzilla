@@ -1,5 +1,5 @@
 %define oname QupZilla
-%define major 1
+%define major 2
 %define libname %mklibname %{oname} %{major}
 %define devname %mklibname %{oname} -d
 %define snapshot %nil
