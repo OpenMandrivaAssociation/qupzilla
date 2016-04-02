@@ -1,17 +1,17 @@
-%define		oname	QupZilla
-%define		major	1
-%define		libname	%mklibname %{oname} %{major}
-%define		devname	%mklibname %{oname} -d
-%define		snapshot 20160328
+%define oname QupZilla
+%define major 1
+%define libname %mklibname %{oname} %{major}
+%define devname %mklibname %{oname} -d
+%define snapshot %nil
 
-Summary:	Fast browser based on QtWebKit
+Summary:	Fast browser based on QtWebEngine
 Name:		qupzilla
-Version:	1.9.0
+Version:	2.0.0
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	6
+Release:	1
 Source0:	https://github.com/QupZilla/qupzilla/releases/download/v%{version}/%{oname}-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -32,6 +32,7 @@ Requires:	%{libname} = %{EVRD}
 Requires:	qt5-qtbase-database-plugin-sqlite
 Requires:	qt5-output-driver-default
 Conflicts:	rosa-media-player-plugin
+Provides:	webclient
 
 %description
 QupZilla is a new and very fast QtWebKit browser. It aims to be a lightweight
@@ -45,12 +46,8 @@ RSS feeds with an included RSS reader, block ads with a builtin AdBlock plugin,
 block Flash content with Click2Flash and edit the local CA Certificates
 database with an SSL Manager.
 
-QupZilla's main aim is to be a very fast and very stable QtWebKit browser
-available to everyone. There are already a lot of QtWebKit browsers available,
-but they are either bound to the KDE environment (rekonq), are not actively
-developed or very unstable and miss important features. But there is missing
-a multiplatform, modern and actively developed browser. QupZilla is trying
-to fill this gap by providing a very stable browsing experience.
+QupZilla's main aim is to be a very fast and very stable QtWebEngine browser
+available to everyone.
 
 %files
 
@@ -72,12 +69,8 @@ RSS feeds with an included RSS reader, block ads with a builtin AdBlock plugin,
 block Flash content with Click2Flash and edit the local CA Certificates
 database with an SSL Manager.
 
-QupZilla's main aim is to be a very fast and very stable QtWebKit browser
-available to everyone. There are already a lot of QtWebKit browsers available,
-but they are either bound to the KDE environment (rekonq), are not actively
-developed or very unstable and miss important features. But there is missing
-a multiplatform, modern and actively developed browser. QupZilla is trying
-to fill this gap by providing a very stable browsing experience.
+QupZilla's main aim is to be a very fast and very stable QtWebEngine browser
+available to everyone.
 
 %files core -f %{name}.lang
 %doc AUTHORS COPYRIGHT FAQ README.md
@@ -153,6 +146,11 @@ rm -rf bin/locale
 %build
 export USE_LIBPATH=%{_libdir}/
 export USE_WEBGL="true"
+export DISABLE_UPDATES_CHECK="true"
+export DISABLE_DBUS="false"
+export PORTABLE_BUILD="false"
+export KDE_INTEGRATION="true"
+
 %qmake_qt5
 %make STRIP=true
 
