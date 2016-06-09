@@ -6,7 +6,7 @@
 
 Summary:	Fast browser based on QtWebEngine
 Name:		qupzilla
-Version:	2.0.0
+Version:	2.0.1
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
@@ -142,7 +142,6 @@ dos2unix COPYRIGHT README.md
 # remove outdated prebuilt localizations
 rm -rf bin/locale
 
-
 %build
 export USE_LIBPATH=%{_libdir}/
 export USE_WEBGL="true"
@@ -159,8 +158,10 @@ make install INSTALL_ROOT=%{buildroot} STRIP=true
 
 %find_lang %{name} --all-name --with-qt
 echo "%%lang(uz) /usr/share/qupzilla/locale/uz@Latn.qm" >>%{name}.lang
+
 cat >>%{name}.lang <<EOF
 %lang(lg) %{_datadir}/qupzilla/locale/lg.qm
+%lang(lt) %{_datadir}/qupzilla/locale/lt.qm
 %lang(nqo) %{_datadir}/qupzilla/locale/nqo.qm
 %lang(sr) %{_datadir}/qupzilla/locale/sr.qm
 %lang(sr) %{_datadir}/qupzilla/locale/sr@ijekavian.qm
