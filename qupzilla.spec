@@ -6,7 +6,7 @@
 
 Summary:	Fast browser based on QtWebEngine
 Name:		qupzilla
-Version:	2.0.0
+Version:	2.0.1
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
@@ -141,7 +141,6 @@ Development files for %{libname} library.
 dos2unix COPYRIGHT README.md
 # remove outdated prebuilt localizations
 rm -rf bin/locale
-
 
 %build
 export USE_LIBPATH=%{_libdir}/
