@@ -11,7 +11,7 @@ Version:	2.0.1
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	1
+Release:	2
 Source0:	https://github.com/QupZilla/qupzilla/releases/download/v%{version}/%{oname}-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -30,7 +30,7 @@ Requires:	%{name}-core = %{EVRD}
 Requires:	%{name}-plugins = %{EVRD}
 Requires:	%{libname} = %{EVRD}
 Requires:	qt5-qtbase-database-plugin-sqlite
-Requires:	qt5-output-driver-default
+Requires:	%{_lib}qt5-output-driver-default
 Conflicts:	rosa-media-player-plugin
 Provides:	webclient
 
