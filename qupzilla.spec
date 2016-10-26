@@ -6,12 +6,12 @@
 
 Summary:	Fast browser based on QtWebEngine
 Name:		qupzilla
-Version:	2.0.1
+Version:	2.0.2
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	3
+Release:	1
 Source0:	https://github.com/QupZilla/qupzilla/releases/download/v%{version}/%{oname}-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
