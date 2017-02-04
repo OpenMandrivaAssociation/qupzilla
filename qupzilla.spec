@@ -164,6 +164,7 @@ make install INSTALL_ROOT=%{buildroot} STRIP=true
 echo "%%lang(uz) /usr/share/qupzilla/locale/uz@Latn.qm" >>%{name}.lang
 
 cat >>%{name}.lang <<EOF
+%lang(is) %{_datadir}/qupzilla/locale/is.qm
 %lang(lg) %{_datadir}/qupzilla/locale/lg.qm
 %lang(lt) %{_datadir}/qupzilla/locale/lt.qm
 %lang(nqo) %{_datadir}/qupzilla/locale/nqo.qm
@@ -172,4 +173,3 @@ cat >>%{name}.lang <<EOF
 %lang(sr) %{_datadir}/qupzilla/locale/sr@ijekavianlatin.qm
 %lang(sr) %{_datadir}/qupzilla/locale/sr@latin.qm
 EOF
-
