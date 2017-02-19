@@ -6,7 +6,7 @@
 
 Summary:	Fast browser based on QtWebEngine
 Name:		qupzilla
-Version:	2.0.2
+Version:	2.1.1
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
@@ -21,9 +21,10 @@ Patch0:		qupzilla-1.3.5-mdv-linking.patch
 %if %mdvver > 3000000
 Patch1:		qupzilla-2.0.1-openssl-1.1.patch
 %endif
-BuildRequires:	qt5-devel
+BuildRequires:	qmake5
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
+BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5WebEngine)
 BuildRequires:	pkgconfig(Qt5WebEngineWidgets)
 BuildRequires:	pkgconfig(Qt5QuickWidgets)
@@ -163,6 +164,7 @@ make install INSTALL_ROOT=%{buildroot} STRIP=true
 echo "%%lang(uz) /usr/share/qupzilla/locale/uz@Latn.qm" >>%{name}.lang
 
 cat >>%{name}.lang <<EOF
+%lang(is) %{_datadir}/qupzilla/locale/is.qm
 %lang(lg) %{_datadir}/qupzilla/locale/lg.qm
 %lang(lt) %{_datadir}/qupzilla/locale/lt.qm
 %lang(nqo) %{_datadir}/qupzilla/locale/nqo.qm
@@ -171,4 +173,3 @@ cat >>%{name}.lang <<EOF
 %lang(sr) %{_datadir}/qupzilla/locale/sr@ijekavianlatin.qm
 %lang(sr) %{_datadir}/qupzilla/locale/sr@latin.qm
 EOF
-
