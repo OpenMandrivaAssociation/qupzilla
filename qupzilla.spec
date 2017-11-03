@@ -6,7 +6,7 @@
 
 Summary:	Fast browser based on QtWebEngine
 Name:		qupzilla
-Version:	2.2.0
+Version:	2.2.1
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
@@ -18,9 +18,7 @@ License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		http://www.qupzilla.org/
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
-%if %mdvver > 3000000
-#Patch1:		qupzilla-2.0.1-openssl-1.1.patch
-%endif
+Patch1:		qupzilla-2.2.1-compile.patch
 BuildRequires:	qmake5
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
@@ -85,6 +83,7 @@ available to everyone.
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/org.%{name}.QupZilla.desktop
+%{_datadir}/appdata/org.qupzilla.QupZilla.appdata.xml
 %dir %{_datadir}/%{name}/locale
 %dir %{_libdir}/qupzilla
 %lang(es) %{_datadir}/%{name}/locale/es_419.qm
