@@ -18,7 +18,6 @@ License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		http://www.qupzilla.org/
 Patch0:		qupzilla-1.3.5-mdv-linking.patch
-Patch1:		qupzilla-2.2.1-compile.patch
 BuildRequires:	qmake5
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
