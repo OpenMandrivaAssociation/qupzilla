@@ -6,7 +6,7 @@
 
 Summary:	Fast browser based on QtWebEngine
 Name:		qupzilla
-Version:	2.2.2
+Version:	2.2.3
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
