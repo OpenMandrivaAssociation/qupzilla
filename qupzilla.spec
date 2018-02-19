@@ -82,7 +82,7 @@ available to everyone.
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/org.%{name}.QupZilla.desktop
-%{_datadir}/appdata/org.qupzilla.QupZilla.appdata.xml
+%{_datadir}/metainfo/org.qupzilla.QupZilla.appdata.xml
 %dir %{_datadir}/%{name}/locale
 %dir %{_libdir}/qupzilla
 %lang(es) %{_datadir}/%{name}/locale/es_419.qm
